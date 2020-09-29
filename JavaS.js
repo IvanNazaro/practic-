@@ -8,13 +8,26 @@ let personMove = {
     private: false
 
 };
-let a = prompt('Один из последних просмотреных фильмов', '');
-let b = prompt('На сколько оценете его ?', '');
-let c = prompt('Один из последних просмотреных фильмов', '');
-let d = prompt('На сколько оценете его ?', '');
 
-personMove.movies[a] = b;
-personMove.movies[c] = d;
+for (let i = 0; i < 2; i++) {
+    let a = prompt('Один из последних просмотреных фильмов', '');
+    let b = prompt('На сколько оценете его ?', '');
 
+    if (a != null && b != null && a != '' && b != '' && a.length < 50) {
+        personMove.movies[a] = b;
+        console.log('DONE');
+    } else {
+        console.log('Error');
+        i--;
+    }
 
-console.log(personMove.movies);
+}
+if (personMove.count < 10) {
+    console.log('Посмотрите больше фильмов');
+} else if (personMove.count >= 10 && personMove.count < 30) {
+    console.log('ВЫ любитель');
+} else if (personMove.count > 30) {
+    console.log('вы батюшка киноман');
+}
+
+console.log(personMove.count);
